@@ -1,0 +1,134 @@
+---
+galaxy_info:
+  author: G. Roggemans
+  description: A role for managing a debug user, debug tools and debugging ansible variables.
+  company: GROG
+  license: LGPLv3
+  min_ansible_version: 1.9
+  platforms:
+  - name: EL
+    versions:
+    - all
+  #  - 5
+  #  - 6
+  #  - 7
+  #- name: GenericUNIX
+  #  versions:
+  #  - all
+  #  - any
+  - name: Fedora
+    versions:
+    - all
+  #  - 16
+  #  - 17
+  #  - 18
+  #  - 19
+  #  - 20
+  #  - 21
+  #  - 22
+  #- name: Windows
+  #  versions:
+  #  - all
+  #  - 2012R2
+  #- name: SmartOS
+  #  versions:
+  #  - all
+  #  - any
+  - name: opensuse
+    versions:
+    - all
+  #  - 12.1
+  #  - 12.2
+  #  - 12.3
+  #  - 13.1
+  #  - 13.2
+  #- name: Amazon
+  #  versions:
+  #  - all
+  #  - 2013.03
+  #  - 2013.09
+  #- name: GenericBSD
+  #  versions:
+  #  - all
+  #  - any
+  #- name: FreeBSD
+  #  versions:
+  #  - all
+  #  - 8.0
+  #  - 8.1
+  #  - 8.2
+  #  - 8.3
+  #  - 8.4
+  #  - 9.0
+  #  - 9.1
+  #  - 9.1
+  #  - 9.2
+  - name: Ubuntu
+    versions:
+    - all
+  #  - lucid
+  #  - maverick
+  #  - natty
+  #  - oneiric
+  #  - precise
+  #  - quantal
+  #  - raring
+  #  - saucy
+  #  - trusty
+  #  - utopic
+  #  - vivid
+  - name: SLES
+    versions:
+    - all
+  #  - 10SP3
+  #  - 10SP4
+  #  - 11
+  #  - 11SP1
+  #  - 11SP2
+  #  - 11SP3
+  #- name: GenericLinux
+  #  versions:
+  #  - all
+  #  - any
+  - name: Debian
+    versions:
+    - all
+  #  - etch
+  #  - jessie
+  #  - lenny
+  #  - squeeze
+  #  - wheezy
+  categories:
+  - development
+  - system
+dependencies:
+  - { role: GROG.user,
+      when: debug_user|string in 'True.true.Yes.yes',
+        # Checked as string to make sure it can be specified from the command line.
+        user_list: "{{ debug_user_list }}"
+    }
+  - { role: GROG.authorized-key,
+      when: debug_user|string in 'True.true.Yes.yes',
+        # Checked as string to make sure it can be specified from the command line.
+        authorized_key_list: "{{ debug_user_list }}"
+    }
+  - { role: GROG.sudo,
+      when: debug_user|string in 'True.true.Yes.yes',
+        # Checked as string to make sure it can be specified from the command line.
+        sudo_list: "{{ debug_user_list }}"
+    }
+  - { role: GROG.package,
+      when: debug_tools|string in 'True.true.Yes.yes',
+        # Checked as string to make sure it can be specified from the command line.
+        package_list: "{{ debug_tools_list }}",
+        package_list_host: "{{ debug_tools_list_host }}",
+        package_list_group: "{{ debug_tools_list_group }}",
+        package_state: "{{ debug_tools_state }}",
+        package_update_cache: "{{ debug_tools_update_cache }}",
+        package_cache_valid_time: "{{ debug_tools_cache_valid_time }}"
+    }
+  - { role: GROG.debug-variable,
+      when: debug_variables|string in 'True.true.Yes.yes',
+        # Checked as string to make sure it can be specified from the command line.
+        debug_variable_dump_location: "{{ debug_variables_dump_location }}"
+    }
