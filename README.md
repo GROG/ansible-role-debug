@@ -40,7 +40,6 @@ By default a user with following data will be created;
 debug_user_settings:
   name: debug
   comment: Ansible
-  password: "{{ lookup('password', playbook_dir + '/passwords/' + inventory_hostname + '/debug_password chars=ascii_letters,digits,hexdigits length=64 encrypt=sha512_crypt') }}"
   shell: '/bin/bash'
   authorized_keys:
     - key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
