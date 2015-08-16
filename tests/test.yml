@@ -3,3 +3,12 @@
   remote_user: root
   roles:
     - role: ansible-role-debug
+      debug_user_settings:
+        name: debug
+        comment: Ansible
+        shell: '/bin/bash'
+        sudo:
+          hosts: ALL
+          as: ALL
+          commands: ALL
+          nopasswd: yes
