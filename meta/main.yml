@@ -98,7 +98,11 @@ galaxy_info:
   #  - lenny
   #  - squeeze
   #  - wheezy
-  categories:
+  galaxy_tags:
+  - debug
+  - user
+  - variables
+  - debugging
   - development
   - system
 dependencies:
