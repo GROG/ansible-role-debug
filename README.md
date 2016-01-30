@@ -1,6 +1,6 @@
 # Debug
 
-[![Ansible Galaxy](http://img.shields.io/badge/galaxy-GROG.debug-660198.svg?style=flat)](https://galaxy.ansible.com/list#/roles/4792)
+[![Ansible Galaxy](http://img.shields.io/badge/galaxy-GROG.debug-660198.svg?style=flat)](https://galaxy.ansible.com/GROG/debug)
 [![Build Status](https://travis-ci.org/GROG/ansible-role-debug.svg?branch=master)](https://travis-ci.org/GROG/ansible-role-debug)
 
 A role for managing a debug user, debug tools and debugging ansible variables.
