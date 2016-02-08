@@ -1,7 +1,9 @@
 # Debug
 
-[![Ansible Galaxy](http://img.shields.io/badge/galaxy-GROG.debug-660198.svg?style=flat)](https://galaxy.ansible.com/GROG/debug)
-[![Build Status](https://travis-ci.org/GROG/ansible-role-debug.svg?branch=master)](https://travis-ci.org/GROG/ansible-role-debug)
+[![Ansible Galaxy][galaxy_image]][galaxy_link]
+[![Build Status][travis_image]][travis_link]
+[![Latest tag][tag_image]][tag_url]
+[![Gitter chat][gitter_image]][gitter_url]
 
 A role for managing a debug user, debug tools and debugging ansible variables.
 
@@ -50,11 +52,10 @@ debug_user_settings:
     nopasswd: yes
 ```
 
-It is however recomended to use your own custom user settings. More
-information about the available attributes can be found in the documentation of
-the GROG [user](https://galaxy.ansible.com/list#/roles/4730),
-[authorized-key](https://galaxy.ansible.com/list#/roles/4737) and
-[sudo](https://galaxy.ansible.com/list#/roles/4765) roles.
+It is however recomended to use your own custom user settings. More information
+about the available attributes can be found in the documentation of the GROG
+[user][grog.user], [authorized-key][grog.authorized-key] and [sudo][grog.sudo]
+roles.
 
 #### `debug_tools_list` details
 
@@ -63,16 +64,15 @@ merged when managing the tools. You can use the host and group lists to specify
 tools per host or group off hosts.
 
 More information about the possible package attributes can be found in the
-documentation of the GROG
-[package](https://galaxy.ansible.com/list#/roles/4689) role.
+documentation of the GROG [package][grog.package] role.
 
 ## Dependencies
 
-- [GROG.user](https://galaxy.ansible.com/list#/roles/4730)
-- [GROG.authorized-key](https://galaxy.ansible.com/list#/roles/4737)
-- [GROG.sudo](https://galaxy.ansible.com/list#/roles/4765)
-- [GROG.package](https://galaxy.ansible.com/list#/roles/4689)
-- [GROG.debug-variable](https://galaxy.ansible.com/list#/roles/4738)
+- [GROG.user][grog.user]
+- [GROG.authorized-key][grog.authorized-key]
+- [GROG.sudo][grog.sudo]
+- [GROG.package][grog.package]
+- [GROG.debug-variable][grog.debug-variable]
 
 ## Example Playbook
 
@@ -84,12 +84,28 @@ documentation of the GROG
 ```
 
 ## Contributing
-
-All assistance, changes or ideas [welcome](https://github.com/GROG/ansible-role-debug/issues)!
+All assistance, changes or ideas [welcome][issues]!
 
 ## Author
-
-By [G. Roggemans](https://github.com/groggemans)
+By [G. Roggemans][groggemans]
 
 ## License
 MIT
+
+[galaxy_image]:         https://img.shields.io/badge/galaxy-GROG.debug-660198.svg?style=flat
+[galaxy_link]:          https://galaxy.ansible.com/GROG/debug
+[travis_image]:         https://travis-ci.org/GROG/ansible-role-debug.svg?branch=master
+[travis_link]:          https://travis-ci.org/GROG/ansible-role-debug
+[tag_image]:            https://img.shields.io/github/tag/GROG/ansible-role-debug.svg
+[tag_url]:              https://github.com/GROG/ansible-role-debug/tags
+[gitter_image]:         https://badges.gitter.im/GROG/chat.svg
+[gitter_url]:           https://gitter.im/GROG/chat
+
+[grog.user]:            https://galaxy.ansible.com/GROG/user
+[grog.authorized-key]:  https://galaxy.ansible.com/GROG/authorized-key
+[grog.sudo]:            https://galaxy.ansible.com/GROG/sudo
+[grog.package]:         https://galaxy.ansible.com/GROG/package
+[grog.debug-variable]:  https://galaxy.ansible.com/GROG/debug-variable
+
+[issues]:               https://github.com/GROG/ansible-role-debug/issues
+[groggemans]:           https://github.com/groggemans
