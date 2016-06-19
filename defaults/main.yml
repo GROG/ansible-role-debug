@@ -3,12 +3,15 @@
 # Add debug user?
 debug_user: yes
 
+debug_user_key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+
 debug_user_settings:
   name: debug
   comment: Ansible
   shell: '/bin/bash'
   authorized_keys:
-    - key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+    - key: "{{ debug_user_key }}"
+      exclusive: yes
   sudo:
     hosts: ALL
     as: ALL
