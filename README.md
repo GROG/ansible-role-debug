@@ -22,8 +22,10 @@ it in a production environment could result in serious security risks.
 
 | Variable | Description | Default value |
 |----------|-------------|---------------|
+| `debug` | Enable debug role | `yes` |
 | `debug_user` | Manage debug user? | `yes` |
 | `debug_user_settings` | Settings for the debug user **(see details!)** | see details |
+| `debug_user_key` | SSH key for the default user settings | `~/.ssh/id_rsa.pub` |
 | `debug_tools` | Manage debug tools? | `yes` |
 | `debug_tools_list` | List of debug tools **(see details!)** | `[]` |
 | `debug_tools_list_host` | List of debug tools **(see details!)** | `[]` |

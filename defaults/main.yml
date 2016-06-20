@@ -1,10 +1,15 @@
 ---
 
+# Enable role
+debug: yes
+
 # Add debug user?
 debug_user: yes
 
+# SSH key for default debug user settings
 debug_user_key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
 
+# Default debug user settings
 debug_user_settings:
   name: debug
   comment: Ansible

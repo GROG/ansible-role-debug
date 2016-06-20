@@ -107,13 +107,13 @@ galaxy_info:
   - system
 dependencies:
   - { role: GROG.management-user,
-      when: debug_user|string in 'True.true.Yes.yes',
-        # Checked as string to make sure it can be specified from the command line.
+      when: (debug|string in 'True.true.Yes.yes') and
+            (debug_user|string in 'True.true.Yes.yes'),
         management_user_list: "{{ debug_user_list }}"
     }
   - { role: GROG.package,
-      when: debug_tools|string in 'True.true.Yes.yes',
-        # Checked as string to make sure it can be specified from the command line.
+      when: (debug|string in 'True.true.Yes.yes') and
+            (debug_tools|string in 'True.true.Yes.yes'),
         package_list: "{{ debug_tools_list }}",
         package_list_host: "{{ debug_tools_list_host }}",
         package_list_group: "{{ debug_tools_list_group }}",
@@ -122,7 +122,7 @@ dependencies:
         package_cache_valid_time: "{{ debug_tools_cache_valid_time }}"
     }
   - { role: GROG.debug-variable,
-      when: debug_variables|string in 'True.true.Yes.yes',
-        # Checked as string to make sure it can be specified from the command line.
+      when: (debug|string in 'True.true.Yes.yes') and
+            (debug_variables|string in 'True.true.Yes.yes'),
         debug_variable_dump_location: "{{ debug_variables_dump_location }}"
     }
