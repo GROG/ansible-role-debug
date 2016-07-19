@@ -22,7 +22,7 @@ it in a production environment could result in serious security risks.
 
 | Variable | Description | Default value |
 |----------|-------------|---------------|
-| `debug` | Enable debug role | `yes` |
+| `debug` | Enable debug role | `no` |
 | `debug_user` | Manage debug user? | `yes` |
 | `debug_user_settings` | Settings for the debug user **(see details!)** | see details |
 | `debug_user_key` | SSH key for the default user settings | `~/.ssh/id_rsa.pub` |
@@ -33,7 +33,7 @@ it in a production environment could result in serious security risks.
 | `debug_tools_state` | State of the debug tools | `present` |
 | `debug_tools_update_cache` | Update package cache? | `yes` |
 | `debug_tools_cache_valid_time` | Valid time for package cache | 3600 |
-| `debug_variables` | Dump ansible variables for debugging? | `no` |
+| `debug_variables` | Dump ansible variables for debugging? | `yes` |
 | `debug_variables_dump_location` | File to dump variables to | '/tmp/ansible.dump' |
 
 #### `debug_user_settings` details
@@ -85,7 +85,7 @@ documentation of the GROG [package][grog.package] role.
 ---
 - hosts: debug
   roles:
-  - { role: GROG.debug, become: yes }
+  - { role: GROG.debug, become: yes, debug: yes }
 ```
 
 ## Contributing
