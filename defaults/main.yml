@@ -49,7 +49,7 @@ debug_tools_update_cache: yes
 debug_tools_cache_valid_time: 3600
 
 # Dump ansible variables?
-debug_variables: yes
+debug_variables: no
 
 # Location for the dump file
 debug_variables_dump_location: '/tmp/ansible.dump'

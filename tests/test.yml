@@ -3,6 +3,7 @@
   remote_user: root
   roles:
     - role: ansible-role-debug
+      debug: yes
       debug_user_settings:
         name: debug
         comment: Ansible
