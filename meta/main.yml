@@ -105,24 +105,30 @@ galaxy_info:
   - debugging
   - development
   - system
+
 dependencies:
-  - { role: GROG.management-user,
-      when: (debug|string in 'True.true.Yes.yes') and
-            (debug_user|string in 'True.true.Yes.yes'),
-        management_user_list: "{{ debug_user_list }}"
-    }
-  - { role: GROG.package,
-      when: (debug|string in 'True.true.Yes.yes') and
-            (debug_tools|string in 'True.true.Yes.yes'),
-        package_list: "{{ debug_tools_list }}",
-        package_list_host: "{{ debug_tools_list_host }}",
-        package_list_group: "{{ debug_tools_list_group }}",
-        package_state: "{{ debug_tools_state }}",
-        package_update_cache: "{{ debug_tools_update_cache }}",
-        package_cache_valid_time: "{{ debug_tools_cache_valid_time }}"
-    }
-  - { role: GROG.debug-variable,
-      when: (debug|string in 'True.true.Yes.yes') and
-            (debug_variables|string in 'True.true.Yes.yes'),
-        debug_variable_dump_location: "{{ debug_variables_dump_location }}"
-    }
+  - role: GROG.management-user
+    version: v1.2.4
+    when: >
+      (debug|string in 'True.true.Yes.yes') and
+      (debug_user|string in 'True.true.Yes.yes')
+    management_user_list: "{{ debug_user_list }}"
+
+  - role: GROG.package
+    version: v1.2.2
+    when: >
+      (debug|string in 'True.true.Yes.yes') and
+      (debug_tools|string in 'True.true.Yes.yes')
+    package_list: "{{ debug_tools_list }}"
+    package_list_host: "{{ debug_tools_list_host }}"
+    package_list_group: "{{ debug_tools_list_group }}"
+    package_state: "{{ debug_tools_state }}"
+    package_update_cache: "{{ debug_tools_update_cache }}"
+    package_cache_valid_time: "{{ debug_tools_cache_valid_time }}"
+
+  - role: GROG.debug-variable
+    version: v1.2.0
+    when: >
+      (debug|string in 'True.true.Yes.yes') and
+      (debug_variables|string in 'True.true.Yes.yes')
+    debug_variable_dump_location: "{{ debug_variables_dump_location }}"
