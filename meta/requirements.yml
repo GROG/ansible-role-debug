@@ -1,5 +1,5 @@
 - src: GROG.management-user
-  version: v1.2.4
+  version: v1.2.5
 
 - src: GROG.package
   version: v1.2.2
