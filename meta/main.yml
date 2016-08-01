@@ -108,7 +108,7 @@ galaxy_info:
 
 dependencies:
   - role: GROG.management-user
-    version: v1.2.5
+    version: v1.2.6
     when: >
       (debug|string in 'True.true.Yes.yes') and
       (debug_user|string in 'True.true.Yes.yes')
